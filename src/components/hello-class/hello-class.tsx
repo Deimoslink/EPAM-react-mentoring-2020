@@ -11,6 +11,7 @@ export class HelloClass extends React.Component<HelloProps, {}> {
                     Hello from {this.props.compiler} and {this.props.framework}
                 </h1>
                 <p>This is rendered from class component</p>
+                <p>Current environment is {process.env.NODE_ENV}</p>
             </div>
 
         );

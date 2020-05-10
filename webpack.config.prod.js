@@ -1,9 +1,11 @@
 var path = require("path");
+var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 
 
 module.exports = {
+    mode: "production",
     entry: "./src/index.tsx",
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -12,7 +14,6 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"]
     },
-    devtool: "source-map",
     module: {
         rules: [
             { test: /\.scss$/, use: [ "style-loader", "css-loader", "sass-loader" ] },
@@ -28,6 +29,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            ENV: 'prod'
+        }),
         new HtmlWebpackPlugin({
             template: "src/index.html"
         }),
