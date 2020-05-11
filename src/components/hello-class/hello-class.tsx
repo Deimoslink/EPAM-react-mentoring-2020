@@ -1,5 +1,5 @@
-import * as React from "react";
-import "./hello-class.scss";
+import * as React from 'react';
+import './hello-class.scss';
 import {HelloProps} from '../../core/interface';
 
 
