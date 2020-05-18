@@ -1,0 +1,19 @@
+.main {
+  background-color: #232323;
+  width: 880px;
+  margin: auto;
+  padding: 20px 40px;
+  .total {
+    margin: 10px 20px;
+    font-size: 120%;
+  }
+  .movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 880px;
+    justify-content: space-between;
+  }
+  .no-results {
+    margin: 10px 20px;
+  }
+}

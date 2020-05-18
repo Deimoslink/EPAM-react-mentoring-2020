@@ -1,11 +1,12 @@
 import * as React from 'react';
+import './Header.scss';
 
 
-interface SearchPropsI {
+interface HeaderPropsI {
     setQuery: (val: string) => void;
 }
 
-export class Search extends React.Component<SearchPropsI, {}> {
+export class Header extends React.Component<HeaderPropsI, {}> {
     query = '';
 
     handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

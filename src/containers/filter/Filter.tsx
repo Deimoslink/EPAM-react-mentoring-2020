@@ -8,6 +8,7 @@ import {
     setSortAction, toggleDropdownAction
 } from '../../core/actions/actions';
 import {ApplicationStateI} from '../../core/interface';
+import './Filter.scss';
 
 interface FilterPropsI {
     setGenre: (val: string) => void;

@@ -9,7 +9,7 @@ import {
     setPageAction
 } from '../../core/actions/actions';
 import {Main} from '../../components/main/Main';
-import {Search} from '../../components/search/Search';
+import {Header} from '../../components/header/Header';
 import './App.scss'
 import {ApplicationStateI, MovieI} from '../../core/interface';
 
@@ -32,7 +32,7 @@ class App extends React.Component<AppPropsI, {}> {
     render() {
         return (
             <div className="App">
-                <Search setQuery={(query) => this.props.setQuery(query)}/>
+                <Header setQuery={(query) => this.props.setQuery(query)}/>
                 <Main
                     movies={this.props.movies}
                     total={this.props.total}

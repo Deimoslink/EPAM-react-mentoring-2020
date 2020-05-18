@@ -3,6 +3,7 @@ import Filter from '../../containers/filter/Filter';
 import {Movie} from '../movie/Movie';
 import {Pagination} from '../pagination/Pagination';
 import {MovieI} from '../../core/interface';
+import './Main.scss';
 
 
 interface MainPropsI {

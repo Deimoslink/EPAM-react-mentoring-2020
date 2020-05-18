@@ -1,4 +1,6 @@
 import * as React from 'react';
+import './Options.scss';
+
 
 interface SortOptionI {
     id: string;
@@ -61,7 +63,7 @@ export class Options extends React.Component<OptionsPropsI, {}> {
 
 
         return (
-            <div className="sort">
+            <div className="sort-options">
                 <div>Sort by: </div>
                 <div className="selected-option"
                      onClick={() => this.props.toggleDropdown(!this.props.showDropdown)}>

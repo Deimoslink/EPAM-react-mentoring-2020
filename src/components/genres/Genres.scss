@@ -1,0 +1,16 @@
+.genres-list {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-basis: 50%;
+  justify-content: space-between;
+  li {
+    padding: 3px 10px 6px 10px;
+    cursor: pointer;
+  }
+}
+
+.current {
+  border: 1px solid white;
+  background-color: #F65261;
+  color: black;
+}

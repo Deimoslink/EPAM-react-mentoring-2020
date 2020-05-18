@@ -1,0 +1,35 @@
+.header {
+  height: 250px;
+  width: 960px;
+  margin: 0 auto 20px;
+
+  background: linear-gradient(360deg, rgba(35, 35, 35, .7), rgba(28, 28, 28, .7)), url("../../assets/header.jpg") ;
+  background-size: cover;
+
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    height: 30px;
+    margin-right: 30px;
+    padding: 5px 20px;
+    background: linear-gradient(rgba(28,28,28, 0.5), rgb(05,05,05));
+    color: white;
+    border: none;
+    border-radius: 2px;
+    flex-basis: 50%;
+  }
+}
+
+.btn-search {
+  height: 41.33px;
+  text-transform: uppercase;
+  background-color: #F65261;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  flex-basis: 20%;
+}
