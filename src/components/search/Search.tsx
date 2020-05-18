@@ -8,7 +8,7 @@ interface SearchPropsI {
 export class Search extends React.Component<SearchPropsI, {}> {
     query = '';
 
-    handleChange = (event) => {
+    handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.query = event.target.value;
     };
 

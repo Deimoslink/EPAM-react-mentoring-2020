@@ -1,3 +1,6 @@
+import {DropdownStateReducerStateI} from './reducers/dropdown-state-reducer';
+import {MoviesReducerStateI} from './reducers/movies-reducer';
+
 export interface MovieI {
     budget: number;
     genres: Array<string>;
@@ -18,4 +21,14 @@ export interface PaginatedDataI<T> {
     total: number;
     offset: number;
     limit: number;
+}
+
+export interface ActionI {
+    type: string;
+    payload: any;
+}
+
+export interface ApplicationStateI {
+    dropdownStateReducer: DropdownStateReducerStateI,
+    moviesReducer: MoviesReducerStateI
 }

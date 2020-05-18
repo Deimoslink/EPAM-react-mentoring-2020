@@ -1,4 +1,17 @@
-export const moviesReducer = (state = {
+import {ActionI, MovieI} from '../interface';
+
+export interface MoviesReducerStateI {
+    movies: Array<MovieI>;
+    selectedOption: string;
+    selectedGenre: string;
+    query: string;
+    sortOrder: string;
+    offset: number;
+    limit: number;
+    total: number | null;
+}
+
+export const moviesReducer = (state: MoviesReducerStateI = {
     movies: [],
     selectedOption: 'release_date',
     selectedGenre: '',
@@ -6,9 +19,8 @@ export const moviesReducer = (state = {
     sortOrder: 'asc',
     offset: 0,
     limit: 6,
-    total: null,
-    showDropdown: false
-}, action) => {
+    total: null
+}, action: ActionI) => {
     switch (action.type) {
         case "OPTIONS":
             state = {

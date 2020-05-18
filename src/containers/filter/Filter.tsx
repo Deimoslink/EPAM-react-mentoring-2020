@@ -7,6 +7,7 @@ import {
     setGenreAction,
     setSortAction, toggleDropdownAction
 } from '../../core/actions/actions';
+import {ApplicationStateI} from '../../core/interface';
 
 interface FilterPropsI {
     setGenre: (val: string) => void;
@@ -38,7 +39,7 @@ class Filter extends React.Component<FilterPropsI, {}> {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: ApplicationStateI) => {
     return {
         selectedGenre: state.moviesReducer.selectedGenre,
         selectedOption: state.moviesReducer.selectedOption,
@@ -47,18 +48,18 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
     return {
-        setGenre: (selectedGenre) => {
+        setGenre: (selectedGenre: string) => {
             dispatch(setGenreAction(selectedGenre));
         },
-        setOption: (selectedOption) => {
+        setOption: (selectedOption: string) => {
             dispatch(setOptionAction(selectedOption));
         },
-        setSort: (sortOrder) => {
+        setSort: (sortOrder: string) => {
             dispatch(setSortAction(sortOrder));
         },
-        toggleDropdown: (showDropdown) => {
+        toggleDropdown: (showDropdown: boolean) => {
             dispatch(toggleDropdownAction(showDropdown));
         }
     };

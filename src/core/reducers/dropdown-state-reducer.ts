@@ -1,6 +1,13 @@
-export const dropdownStateReducer = (state = {
+import {ActionI} from '../interface';
+
+
+export interface DropdownStateReducerStateI {
+    showDropdown: boolean;
+}
+
+export const dropdownStateReducer = (state: DropdownStateReducerStateI = {
     showDropdown: false
-}, action) => {
+}, action: ActionI) => {
     switch (action.type) {
         case "SHOW_DROPDOWN":
             state = {

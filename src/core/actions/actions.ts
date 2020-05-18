@@ -1,8 +1,10 @@
 import {getMoviesByFiltersPaginated} from '../api-service';
+import {Dispatch} from 'redux';
+import {ActionI, ApplicationStateI} from '../interface';
 
 
 export const setMoviesAction = () => {
-  return (dispatch, getState) => {
+  return (dispatch: Dispatch<ActionI>, getState: () => ApplicationStateI) => {
       const {limit, offset, selectedOption, sortOrder, selectedGenre, query} = getState().moviesReducer;
 
       getMoviesByFiltersPaginated(limit, offset, selectedOption, sortOrder, selectedGenre, query)
@@ -20,7 +22,7 @@ export const setMoviesAction = () => {
 };
 
 export const setOptionAction = (selectedOption: string) =>  {
-    return dispatch => {
+    return (dispatch: Dispatch<any>) => {
         dispatch({
             type: "OPTIONS",
             payload: selectedOption
@@ -30,7 +32,7 @@ export const setOptionAction = (selectedOption: string) =>  {
 };
 
 export const setGenreAction = (selectedGenre: string) => {
-    return dispatch => {
+    return (dispatch: Dispatch<any>) => {
         dispatch ({
             type: "GENRE",
             payload: selectedGenre
@@ -40,7 +42,7 @@ export const setGenreAction = (selectedGenre: string) => {
 };
 
 export const setQueryAction = (query: string) => {
-    return dispatch => {
+    return (dispatch: Dispatch<any>) => {
         dispatch ({
             type: "QUERY",
             payload: query
@@ -50,7 +52,7 @@ export const setQueryAction = (query: string) => {
 };
 
 export const setSortAction = (sortOrder: string) => {
-    return dispatch => {
+    return (dispatch: Dispatch<any>) => {
         dispatch ({
             type: "SORT_ORDER",
             payload: sortOrder
@@ -60,7 +62,7 @@ export const setSortAction = (sortOrder: string) => {
 };
 
 export const setSizeAction = (limit: number) => {
-    return dispatch => {
+    return (dispatch: Dispatch<any>) => {
         dispatch ({
             type: "SET_SIZE",
             payload: limit
@@ -70,7 +72,7 @@ export const setSizeAction = (limit: number) => {
 };
 
 export const setPageAction = (offset: number) => {
-    return dispatch => {
+    return (dispatch: Dispatch<any>) => {
         dispatch ({
             type: "SET_PAGE",
             payload: offset
@@ -80,7 +82,7 @@ export const setPageAction = (offset: number) => {
 };
 
 export const toggleDropdownAction = (showDropdown: boolean) => {
-    return dispatch => {
+    return (dispatch: Dispatch<any>) => {
         dispatch ({
             type: "SHOW_DROPDOWN",
             payload: showDropdown

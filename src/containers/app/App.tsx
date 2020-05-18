@@ -11,7 +11,7 @@ import {
 import {Main} from '../../components/main/Main';
 import {Search} from '../../components/search/Search';
 import './App.scss'
-import {MovieI} from '../../core/interface';
+import {ApplicationStateI, MovieI} from '../../core/interface';
 
 interface AppPropsI {
     setOption: (val: string) => void;
@@ -47,7 +47,7 @@ class App extends React.Component<AppPropsI, {}> {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: ApplicationStateI) => {
     return {
         selectedGenre: state.moviesReducer.selectedGenre,
         selectedOption: state.moviesReducer.selectedOption,
@@ -59,24 +59,24 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
     return {
-        setGenre: (selectedGenre) => {
+        setGenre: (selectedGenre: string) => {
             dispatch(setGenreAction(selectedGenre));
         },
-        setOption: (selectedOption) => {
+        setOption: (selectedOption: string) => {
             dispatch(setOptionAction(selectedOption));
         },
-        setQuery: (query) => {
+        setQuery: (query: string) => {
             dispatch(setQueryAction(query));
         },
-        setSort: (sortOrder) => {
+        setSort: (sortOrder: string) => {
             dispatch(setSortAction(sortOrder));
         },
-        setSize: (limit) => {
+        setSize: (limit: number) => {
             dispatch(setSizeAction(limit));
         },
-        setPage: (offset) => {
+        setPage: (offset: number) => {
             dispatch(setPageAction(offset));
         }
     };

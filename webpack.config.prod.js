@@ -17,7 +17,6 @@ module.exports = {
     module: {
         rules: [
             { test: /\.scss$/, use: [ "style-loader", "css-loader", "sass-loader" ] },
-            { test: /\.tsx?$/, loader: "babel-loader" },
             { test: /\.tsx?$/, loader: "ts-loader" },
             {
                 test: /\.(jpg|png|ico)$/,

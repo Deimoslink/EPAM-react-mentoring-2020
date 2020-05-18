@@ -1,5 +1,9 @@
 import * as React from 'react';
 
+interface SortOptionI {
+    id: string;
+    name: string;
+}
 
 interface OptionsPropsI {
     setSort: (val: string) => void;
@@ -11,12 +15,12 @@ interface OptionsPropsI {
 }
 
 export class Options extends React.Component<OptionsPropsI, {}> {
-    sortOptionsMap = {
+    sortOptionsMap: any = {
         'release_date': 'Release Date',
         'vote_average': 'Average Rate',
         'vote_count': 'Most Rated'
     };
-    options = [
+    options: Array<SortOptionI> = [
         {
             id: 'release_date',
             name: 'Release date'
@@ -43,7 +47,7 @@ export class Options extends React.Component<OptionsPropsI, {}> {
         let dropdown;
         if (this.props.showDropdown === true){
             dropdown =
-                <ul className="dropdown">{this.options.map((item, index) => {
+                <ul className="dropdown">{this.options.map((item: SortOptionI, index: number) => {
                     return <li className="option" key={index}
                                onClick={() => {
                                    this.props.setOption(item.id);
