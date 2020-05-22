@@ -1,10 +1,7 @@
 import * as React from 'react';
 import './Header.scss';
+import {HeaderPropsI} from './Header.interface';
 
-
-interface HeaderPropsI {
-    setQuery: (val: string) => void;
-}
 
 export class Header extends React.Component<HeaderPropsI, {}> {
     query = '';

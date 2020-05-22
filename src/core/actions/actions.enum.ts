@@ -1,0 +1,11 @@
+export enum ACTIONS {
+    GET_MOVIES = "GET_MOVIES",
+    GET_TOTAL = "GET_TOTAL",
+    OPTIONS = "OPTIONS",
+    GENRE = "GENRE",
+    QUERY = "QUERY",
+    SORT_ORDER = "SORT_ORDER",
+    SET_SIZE = "SET_SIZE",
+    SET_PAGE = "SET_PAGE",
+    SHOW_DROPDOWN = "SHOW_DROPDOWN"
+}

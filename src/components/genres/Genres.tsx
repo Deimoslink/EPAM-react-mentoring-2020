@@ -1,11 +1,7 @@
 import * as React from 'react';
 import './Genres.scss';
+import {GenresPropsI} from './Genres.interface';
 
-
-interface GenresPropsI {
-    setGenre: (val: string) => void;
-    selectedGenre: string;
-}
 
 export class Genres extends React.Component<GenresPropsI, {}> {
     genres: Array<string> = ['', 'comedy', 'horror', 'crime', 'action', 'drama', 'thriller'];

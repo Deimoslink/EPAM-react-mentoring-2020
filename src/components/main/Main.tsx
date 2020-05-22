@@ -2,19 +2,10 @@ import * as React from 'react';
 import Filter from '../../containers/filter/Filter';
 import {Movie} from '../movie/Movie';
 import {Pagination} from '../pagination/Pagination';
-import {MovieI} from '../../core/interface';
 import './Main.scss';
 import {ErrorBoundary} from '../../core/ErrorBoundary';
+import {MainPropsI} from './Main.interface';
 
-
-interface MainPropsI {
-    movies: Array<MovieI>;
-    total: number;
-    offset: number;
-    limit: number;
-    setSize: (val: number) => void;
-    setPage: (val: number) => void;
-}
 
 export class Main extends React.Component<MainPropsI, {}> {
     render() {

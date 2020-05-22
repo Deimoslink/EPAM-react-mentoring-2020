@@ -1,14 +1,7 @@
 import * as React from 'react';
 import './Pagination.scss'
+import {PaginationPropsI} from './Pagination.interface';
 
-
-interface PaginationPropsI {
-    offset: number;
-    limit: number;
-    total: number;
-    setSize: (val: number) => void;
-    setPage: (val: number) => void;
-}
 
 export class Pagination extends React.Component<PaginationPropsI, {}> {
     pageSizes: Array<number> = [6, 9, 12];

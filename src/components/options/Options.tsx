@@ -1,21 +1,7 @@
 import * as React from 'react';
 import './Options.scss';
-import {setOptionAction} from '../../core/actions/actions';
+import {OptionsPropsI, SortOptionI} from './Options.interface';
 
-
-interface SortOptionI {
-    id: string;
-    name: string;
-}
-
-interface OptionsPropsI {
-    setSort: (val: string) => void;
-    setOption: (val: string) => void;
-    toggleDropdown: (val: boolean) => void;
-    sortOrder: string;
-    selectedOption: string;
-    showDropdown: boolean;
-}
 
 export class Options extends React.Component<OptionsPropsI, {}> {
     sortOptionsMap: any = {

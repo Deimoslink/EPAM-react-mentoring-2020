@@ -9,17 +9,7 @@ import {
 } from '../../core/actions/actions';
 import {ApplicationStateI} from '../../core/interface';
 import './Filter.scss';
-
-interface FilterPropsI {
-    setGenre: (val: string) => void;
-    setSort: (val: string) => void;
-    setOption: (val: string) => void;
-    toggleDropdown: (val: boolean) => void;
-    sortOrder: string;
-    selectedOption: string;
-    selectedGenre: string;
-    showDropdown: boolean;
-}
+import {FilterPropsI} from './Filter.interface';
 
 
 class Filter extends React.Component<FilterPropsI, {}> {

@@ -1,6 +1,7 @@
 import {getMoviesByFiltersPaginated} from '../api-service';
 import {Dispatch} from 'redux';
 import {ActionI, ApplicationStateI} from '../interface';
+import {ACTIONS} from './actions.enum';
 
 
 export const setMoviesAction = () => {
@@ -10,11 +11,11 @@ export const setMoviesAction = () => {
       getMoviesByFiltersPaginated(limit, offset, selectedOption, sortOrder, selectedGenre, query)
           .then(res => {
               dispatch({
-                  type: "GET_MOVIES",
+                  type: ACTIONS.GET_MOVIES,
                   payload: res.data.data
               });
               dispatch({
-                  type: "GET_TOTAL",
+                  type: ACTIONS.GET_TOTAL,
                   payload: res.data.total
               });
           });
@@ -24,7 +25,7 @@ export const setMoviesAction = () => {
 export const setOptionAction = (selectedOption: string) =>  {
     return (dispatch: Dispatch<any>) => {
         dispatch({
-            type: "OPTIONS",
+            type: ACTIONS.OPTIONS,
             payload: selectedOption
         });
         dispatch(setMoviesAction());
@@ -34,7 +35,7 @@ export const setOptionAction = (selectedOption: string) =>  {
 export const setGenreAction = (selectedGenre: string) => {
     return (dispatch: Dispatch<any>) => {
         dispatch ({
-            type: "GENRE",
+            type: ACTIONS.GENRE,
             payload: selectedGenre
         });
         dispatch(setMoviesAction());
@@ -44,7 +45,7 @@ export const setGenreAction = (selectedGenre: string) => {
 export const setQueryAction = (query: string) => {
     return (dispatch: Dispatch<any>) => {
         dispatch ({
-            type: "QUERY",
+            type: ACTIONS.QUERY,
             payload: query
         });
         dispatch(setMoviesAction());
@@ -54,7 +55,7 @@ export const setQueryAction = (query: string) => {
 export const setSortAction = (sortOrder: string) => {
     return (dispatch: Dispatch<any>) => {
         dispatch ({
-            type: "SORT_ORDER",
+            type: ACTIONS.SORT_ORDER,
             payload: sortOrder
         });
         dispatch(setMoviesAction());
@@ -64,7 +65,7 @@ export const setSortAction = (sortOrder: string) => {
 export const setSizeAction = (limit: number) => {
     return (dispatch: Dispatch<any>) => {
         dispatch ({
-            type: "SET_SIZE",
+            type: ACTIONS.SET_SIZE,
             payload: limit
         });
         dispatch(setMoviesAction());
@@ -74,7 +75,7 @@ export const setSizeAction = (limit: number) => {
 export const setPageAction = (offset: number) => {
     return (dispatch: Dispatch<any>) => {
         dispatch ({
-            type: "SET_PAGE",
+            type: ACTIONS.SET_PAGE,
             payload: offset
         });
         dispatch(setMoviesAction());
@@ -84,7 +85,7 @@ export const setPageAction = (offset: number) => {
 export const toggleDropdownAction = (showDropdown: boolean) => {
     return (dispatch: Dispatch<any>) => {
         dispatch ({
-            type: "SHOW_DROPDOWN",
+            type: ACTIONS.SHOW_DROPDOWN,
             payload: showDropdown
         })
     }

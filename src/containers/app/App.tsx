@@ -11,18 +11,9 @@ import {
 import {Main} from '../../components/main/Main';
 import {Header} from '../../components/header/Header';
 import './App.scss'
-import {ApplicationStateI, MovieI} from '../../core/interface';
+import {ApplicationStateI} from '../../core/interface';
+import {AppPropsI} from './App.interface';
 
-interface AppPropsI {
-    setOption: (val: string) => void;
-    movies: Array<MovieI>;
-    total: number;
-    offset: number;
-    limit: number;
-    setSize: (val: number) => void;
-    setPage: (val: number) => void;
-    setQuery: (val: string) => void;
-}
 
 class App extends React.Component<AppPropsI, {}> {
     componentDidMount() {

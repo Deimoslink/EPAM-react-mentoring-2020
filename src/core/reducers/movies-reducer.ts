@@ -1,15 +1,6 @@
 import {ActionI, MovieI} from '../interface';
-
-export interface moviesStateI {
-    movies: Array<MovieI>;
-    selectedOption: string;
-    selectedGenre: string;
-    query: string;
-    sortOrder: string;
-    offset: number;
-    limit: number;
-    total: number | null;
-}
+import {ACTIONS} from '../actions/actions.enum';
+import {moviesStateI} from './reducer.interface';
 
 export const movies = (state: moviesStateI = {
     movies: [],
@@ -20,60 +11,60 @@ export const movies = (state: moviesStateI = {
     offset: 0,
     limit: 6,
     total: null
-}, action: ActionI) => {
-    switch (action.type) {
-        case "OPTIONS":
+}, {type, payload}: ActionI) => {
+    switch (type) {
+        case ACTIONS.OPTIONS:
             state = {
                 ...state,
-                selectedOption: action.payload,
+                selectedOption: payload,
                 offset: 0
             };
             break;
-        case "GET_MOVIES":
+        case ACTIONS.GET_MOVIES:
             state = {
                 ...state,
-                movies: action.payload,
-                total: action.payload.length
+                movies: payload,
+                total: payload.length
             };
             break;
-        case "GENRE":
+        case ACTIONS.GENRE:
             state = {
                 ...state,
-                selectedGenre: action.payload,
+                selectedGenre: payload,
                 offset: 0
             };
             break;
-        case "QUERY":
+        case ACTIONS.QUERY:
             state = {
                 ...state,
-                query: action.payload,
+                query: payload,
                 offset: 0
             };
             break;
-        case "SORT_ORDER":
+        case ACTIONS.SORT_ORDER:
             state = {
                 ...state,
-                sortOrder: action.payload,
+                sortOrder: payload,
                 offset: 0
             };
             break;
-        case "GET_TOTAL":
+        case ACTIONS.GET_TOTAL:
             state = {
                 ...state,
-                total: action.payload
+                total: payload
             };
             break;
-        case "SET_SIZE":
+        case ACTIONS.SET_SIZE:
             state = {
                 ...state,
-                limit: action.payload,
+                limit: payload,
                 offset: 0
             };
             break;
-        case "SET_PAGE":
+        case ACTIONS.SET_PAGE:
             state = {
                 ...state,
-                offset: action.payload
+                offset: payload
             };
             break;
         default:

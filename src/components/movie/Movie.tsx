@@ -1,13 +1,7 @@
 import * as React from 'react';
 import './Movie.scss';
+import {MoviePropsI} from './Movie.interface';
 
-
-interface MoviePropsI {
-    title: string;
-    release_date: string;
-    genres: Array<string>;
-    poster_path: string;
-}
 
 export const Movie = (props: MoviePropsI) => (
     <article className="movie">

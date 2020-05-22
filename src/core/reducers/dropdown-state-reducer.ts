@@ -1,18 +1,15 @@
 import {ActionI} from '../interface';
-
-
-export interface dropdownStateStateI {
-    showDropdown: boolean;
-}
+import {ACTIONS} from '../actions/actions.enum';
+import {dropdownStateStateI} from './reducer.interface';
 
 export const dropdownState = (state: dropdownStateStateI = {
     showDropdown: false
-}, action: ActionI) => {
-    switch (action.type) {
-        case "SHOW_DROPDOWN":
+}, {type, payload}: ActionI) => {
+    switch (type) {
+        case ACTIONS.SHOW_DROPDOWN:
             state = {
                 ...state,
-                showDropdown: action.payload
+                showDropdown: payload
             };
             break;
         default:
