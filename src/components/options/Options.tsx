@@ -44,15 +44,8 @@ export class Options extends React.Component<OptionsPropsI, {}> {
     };
 
     render() {
-        // const arrowClassName= this.props.sortOrder === 'desc' ? 'down' : 'up';
-        // const arrow = <i className='arrow ${arrowClassName}'></i>;
-        let arrow;
-        if (this.props.sortOrder === 'desc'){
-            arrow = <i className="arrow down"></i>;
-        } else {
-            arrow = <i className="arrow up"></i>;
-        }
-
+        const arrowClassName = this.props.sortOrder === 'desc' ? 'arrow down' : 'arrow up';
+        const arrow = <i className={arrowClassName}></i>;
 
         let dropdown;
         if (this.props.showDropdown === true){
