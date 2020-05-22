@@ -1,0 +1,45 @@
+.pagination-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .pagination {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: auto;
+  }
+
+  .pagination-button {
+    cursor: pointer;
+    padding: 3px 10px 6px;
+    background-color: #232323;
+    border: 1px solid white;
+    border-radius: 2px;
+    margin-right: 10px;
+    color: white;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .pagination-block {
+    display: flex;
+    margin-right: 10px;
+  }
+
+  .size-wrapper {
+    display: flex;
+    flex-flow: row;
+    margin: 20px auto;
+  }
+
+  .size {
+    margin-left: 20px;
+  }
+
+  .current {
+    background-color: #F65261;
+    color: black;
+  }
+
+}
+

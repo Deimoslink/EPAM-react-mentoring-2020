@@ -1,0 +1,24 @@
+.sort-options {
+  position: relative;
+  flex-basis: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.dropdown {
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  background-color: #232323;
+  padding: 5px;
+  border: 1px solid white;
+  top: 20px;
+  right: 20px;
+}
+
+.selected-option {
+  margin-left: 25px;
+  flex-basis: 100px;
+  cursor: pointer;
+}
