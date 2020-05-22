@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './Options.scss';
+import {setOptionAction} from '../../core/actions/actions';
 
 
 interface SortOptionI {
@@ -37,7 +38,14 @@ export class Options extends React.Component<OptionsPropsI, {}> {
         }
     ];
 
+    setOption = (item: SortOptionI): void => {
+        this.props.setOption(item.id);
+        this.props.toggleDropdown(!this.props.showDropdown)
+    };
+
     render() {
+        // const arrowClassName= this.props.sortOrder === 'desc' ? 'down' : 'up';
+        // const arrow = <i className='arrow ${arrowClassName}'></i>;
         let arrow;
         if (this.props.sortOrder === 'desc'){
             arrow = <i className="arrow down"></i>;
@@ -51,10 +59,7 @@ export class Options extends React.Component<OptionsPropsI, {}> {
             dropdown =
                 <ul className="dropdown">{this.options.map((item: SortOptionI, index: number) => {
                     return <li className="option" key={index}
-                               onClick={() => {
-                                   this.props.setOption(item.id);
-                                   this.props.toggleDropdown(!this.props.showDropdown)
-                               }}>
+                               onClick={this.setOption.bind(this, item)}>
                         {item.name}
                     </li>
                 })}
@@ -63,15 +68,15 @@ export class Options extends React.Component<OptionsPropsI, {}> {
 
 
         return (
-            <div className="sort-options">
-                <div>Sort by: </div>
+            <section className="sort-options">
+                <h5>Sort by: </h5>
                 <div className="selected-option"
                      onClick={() => this.props.toggleDropdown(!this.props.showDropdown)}>
                     {this.sortOptionsMap[this.props.selectedOption]}
                 </div>
                 <div className="arrow-wrapper" onClick={() => {this.props.setSort(this.props.sortOrder === 'asc' ? 'desc' : 'asc')}}>{arrow}</div>
                 {dropdown}
-            </div>
+            </section>
         );
     }
 }

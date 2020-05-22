@@ -1,6 +1,6 @@
 import {ActionI, MovieI} from '../interface';
 
-export interface MoviesReducerStateI {
+export interface moviesStateI {
     movies: Array<MovieI>;
     selectedOption: string;
     selectedGenre: string;
@@ -11,7 +11,7 @@ export interface MoviesReducerStateI {
     total: number | null;
 }
 
-export const moviesReducer = (state: MoviesReducerStateI = {
+export const movies = (state: moviesStateI = {
     movies: [],
     selectedOption: 'release_date',
     selectedGenre: '',

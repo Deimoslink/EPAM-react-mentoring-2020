@@ -1,11 +1,11 @@
 import {ActionI} from '../interface';
 
 
-export interface DropdownStateReducerStateI {
+export interface dropdownStateStateI {
     showDropdown: boolean;
 }
 
-export const dropdownStateReducer = (state: DropdownStateReducerStateI = {
+export const dropdownState = (state: dropdownStateStateI = {
     showDropdown: false
 }, action: ActionI) => {
     switch (action.type) {

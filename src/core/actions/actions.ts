@@ -5,7 +5,7 @@ import {ActionI, ApplicationStateI} from '../interface';
 
 export const setMoviesAction = () => {
   return (dispatch: Dispatch<ActionI>, getState: () => ApplicationStateI) => {
-      const {limit, offset, selectedOption, sortOrder, selectedGenre, query} = getState().moviesReducer;
+      const {limit, offset, selectedOption, sortOrder, selectedGenre, query} = getState().movies;
 
       getMoviesByFiltersPaginated(limit, offset, selectedOption, sortOrder, selectedGenre, query)
           .then(res => {

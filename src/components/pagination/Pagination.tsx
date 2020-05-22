@@ -58,31 +58,29 @@ export class Pagination extends React.Component<PaginationPropsI, {}> {
         }
 
         return (
-            <div className="pagination-wrapper">
+            <section className="pagination-wrapper">
                 <div className="pagination">
                     {arrowPrev}
                     {this.pageButtons.map((item, index) => {
-                        if (item === this.currentPage){
-                            return <button className="pagination-button current" key={index} onClick={() =>this.props.setPage(this.calculateOffset(item))}>{item}</button>
-                        } else {
-                            return <button className="pagination-button" key={index} onClick={() =>this.props.setPage(this.calculateOffset(item))}>{item}</button>
-                        }
+                        return item === this.currentPage ?
+                            <button className="pagination-button current" key={index} onClick={() =>this.props.setPage(this.calculateOffset(item))}>{item}</button>
+                        :
+                            <button className="pagination-button" key={index} onClick={() =>this.props.setPage(this.calculateOffset(item))}>{item}</button>
                     })}
                     {arrowNext}
                 </div>
                 <div className="size-wrapper">
-                    <div>Show per page:</div>
+                    <h4>Show per page:</h4>
                     <div className="size">
                         {this.pageSizes.map((item, index) => {
-                            if (item === this.props.limit){
-                                return <button className="pagination-button current" key={index} onClick={() => this.props.setSize(item)}>{item}</button>
-                            } else {
-                                return <button className="pagination-button" key={index} onClick={() => this.props.setSize(item)}>{item}</button>
-                            }
+                            return item === this.props.limit ?
+                                <button className="pagination-button current" key={index} onClick={() => this.props.setSize(item)}>{item}</button>
+                            :
+                                <button className="pagination-button" key={index} onClick={() => this.props.setSize(item)}>{item}</button>
                         })}
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 }

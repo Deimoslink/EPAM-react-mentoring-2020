@@ -10,5 +10,15 @@ export const getMoviesByFiltersPaginated = (
     selectedGenre: string,
     query: string
 ): Promise<AxiosResponse<PaginatedDataI<MovieI>>> => {
-    return axios.get(`https://reactjs-cdp.herokuapp.com/movies?limit=${limit}&offset=${offset}&sortBy=${selectedOption}&sortOrder=${sortOrder}&filter=${selectedGenre}&search=${query}&searchBy=title`);
+    return axios.get(`https://reactjs-cdp.herokuapp.com/movies`, {
+        params: {
+            limit,
+            offset,
+            sortOrder,
+            sortBy: selectedOption,
+            filter: selectedGenre,
+            search: query,
+            searchBy: 'title'
+        }
+    });
 };

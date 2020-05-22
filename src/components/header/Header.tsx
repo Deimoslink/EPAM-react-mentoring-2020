@@ -9,7 +9,11 @@ interface HeaderPropsI {
 export class Header extends React.Component<HeaderPropsI, {}> {
     query = '';
 
-    handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery = (): void => {
+        this.props.setQuery(this.query)
+    };
+
+    handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         this.query = event.target.value;
     };
 
@@ -19,10 +23,10 @@ export class Header extends React.Component<HeaderPropsI, {}> {
                 <input placeholder="What do you want to watch?"
                        className="search"
                        onChange={this.handleChange}
-                       onKeyPress={ (event) => {if (event.key === 'Enter'){this.props.setQuery(this.query)}} }
+                       onKeyPress={ (event) => {if (event.key === 'Enter'){this.setQuery}} }
                 />
                 <button className="btn-search"
-                        onClick={() => {this.props.setQuery(this.query)}}
+                        onClick={this.setQuery}
                 >Search</button>
             </div>
         );

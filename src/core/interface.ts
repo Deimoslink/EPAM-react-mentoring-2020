@@ -1,5 +1,5 @@
-import {DropdownStateReducerStateI} from './reducers/dropdown-state-reducer';
-import {MoviesReducerStateI} from './reducers/movies-reducer';
+import {dropdownStateStateI} from './reducers/dropdown-state-reducer';
+import {moviesStateI} from './reducers/movies-reducer';
 
 export interface MovieI {
     budget: number;
@@ -29,6 +29,6 @@ export interface ActionI {
 }
 
 export interface ApplicationStateI {
-    dropdownStateReducer: DropdownStateReducerStateI,
-    moviesReducer: MoviesReducerStateI
+    dropdownState: dropdownStateStateI,
+    movies: moviesStateI
 }

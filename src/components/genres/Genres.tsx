@@ -15,9 +15,9 @@ export class Genres extends React.Component<GenresPropsI, {}> {
             <ul className="genres-list">
                 {this.genres.map((item, index) => {
                     return <li key={index}
-                                className={(this.props.selectedGenre === item ? 'current' : '')}
-                                onClick={() => this.props.setGenre(item)}>
-                        {item ? item : 'all'}
+                               className={(this.props.selectedGenre === item ? 'current' : '')}
+                               onClick={() => this.props.setGenre(item)}>
+                        {item || 'all'}
                     </li>
                 })}
             </ul>

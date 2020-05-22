@@ -42,28 +42,18 @@ class Filter extends React.Component<FilterPropsI, {}> {
 
 const mapStateToProps = (state: ApplicationStateI) => {
     return {
-        selectedGenre: state.moviesReducer.selectedGenre,
-        selectedOption: state.moviesReducer.selectedOption,
-        sortOrder: state.moviesReducer.sortOrder,
-        showDropdown: state.dropdownStateReducer.showDropdown,
+        selectedGenre: state.movies.selectedGenre,
+        selectedOption: state.movies.selectedOption,
+        sortOrder: state.movies.sortOrder,
+        showDropdown: state.dropdownState.showDropdown,
     };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
-    return {
-        setGenre: (selectedGenre: string) => {
-            dispatch(setGenreAction(selectedGenre));
-        },
-        setOption: (selectedOption: string) => {
-            dispatch(setOptionAction(selectedOption));
-        },
-        setSort: (sortOrder: string) => {
-            dispatch(setSortAction(sortOrder));
-        },
-        toggleDropdown: (showDropdown: boolean) => {
-            dispatch(toggleDropdownAction(showDropdown));
-        }
-    };
+const mapDispatchToProps = {
+    setGenre: setGenreAction,
+    setOption: setOptionAction,
+    setSort: setSortAction,
+    toggleDropdown: toggleDropdownAction
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

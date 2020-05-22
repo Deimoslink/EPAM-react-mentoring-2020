@@ -6,7 +6,7 @@ import {
     setQueryAction,
     setSortAction,
     setSizeAction,
-    setPageAction
+    setPageAction, toggleDropdownAction
 } from '../../core/actions/actions';
 import {Main} from '../../components/main/Main';
 import {Header} from '../../components/header/Header';
@@ -33,14 +33,8 @@ class App extends React.Component<AppPropsI, {}> {
         return (
             <div className="App">
                 <Header setQuery={(query) => this.props.setQuery(query)}/>
-                <Main
-                    movies={this.props.movies}
-                    total={this.props.total}
-                    offset={this.props.offset}
-                    limit={this.props.limit}
+                <Main {...this.props}
 
-                    setSize={(limit) => this.props.setSize(limit)}
-                    setPage={(offset) => this.props.setPage(offset)}
                 />
             </div>
         );
@@ -49,37 +43,23 @@ class App extends React.Component<AppPropsI, {}> {
 
 const mapStateToProps = (state: ApplicationStateI) => {
     return {
-        selectedGenre: state.moviesReducer.selectedGenre,
-        selectedOption: state.moviesReducer.selectedOption,
-        movies: state.moviesReducer.movies,
-        sortOrder: state.moviesReducer.sortOrder,
-        total: state.moviesReducer.total,
-        offset: state.moviesReducer.offset,
-        limit: state.moviesReducer.limit,
+        selectedGenre: state.movies.selectedGenre,
+        selectedOption: state.movies.selectedOption,
+        movies: state.movies.movies,
+        sortOrder: state.movies.sortOrder,
+        total: state.movies.total,
+        offset: state.movies.offset,
+        limit: state.movies.limit,
     };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
-    return {
-        setGenre: (selectedGenre: string) => {
-            dispatch(setGenreAction(selectedGenre));
-        },
-        setOption: (selectedOption: string) => {
-            dispatch(setOptionAction(selectedOption));
-        },
-        setQuery: (query: string) => {
-            dispatch(setQueryAction(query));
-        },
-        setSort: (sortOrder: string) => {
-            dispatch(setSortAction(sortOrder));
-        },
-        setSize: (limit: number) => {
-            dispatch(setSizeAction(limit));
-        },
-        setPage: (offset: number) => {
-            dispatch(setPageAction(offset));
-        }
-    };
+const mapDispatchToProps = {
+    setGenre: setGenreAction,
+    setOption: setOptionAction,
+    setQuery: setQueryAction,
+    setSort: setSortAction,
+    setSize: setSizeAction,
+    setPage: setPageAction
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
