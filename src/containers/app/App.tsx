@@ -6,7 +6,7 @@ import {
     setQueryAction,
     setSortAction,
     setSizeAction,
-    setPageAction, toggleDropdownAction
+    setPageAction,
 } from '../../core/actions/actions';
 import {Main} from '../../components/main/Main';
 import {Header} from '../../components/header/Header';

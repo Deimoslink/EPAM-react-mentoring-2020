@@ -4,6 +4,7 @@ import {Movie} from '../movie/Movie';
 import {Pagination} from '../pagination/Pagination';
 import {MovieI} from '../../core/interface';
 import './Main.scss';
+import {ErrorBoundary} from '../../core/ErrorBoundary';
 
 
 interface MainPropsI {
@@ -18,27 +19,32 @@ interface MainPropsI {
 export class Main extends React.Component<MainPropsI, {}> {
     render() {
         return this.props.movies.length ?
-            <div className="main">
-                <div className="total"><b>{this.props.total}</b> {this.props.total === 1 ? 'movie' : 'movies'} found</div>
-                <Filter/>
-                <div className="movies-list">
-                    {Array.from(this.props.movies).map((item) => {
-                        return <Movie key={item.id} {...item}/>
-                    })}
+            <ErrorBoundary>
+                <div className="main">
+                    <div className="total"><b>{this.props.total}</b> {this.props.total === 1 ? 'movie' : 'movies'} found</div>
+                    <Filter/>
+                    <div className="movies-list">
+                        {Array.from(this.props.movies).map((item) => {
+                            return <Movie key={item.id} {...item}/>
+                        })}
+                    </div>
+                    <Pagination
+                        total={this.props.total}
+                        offset={this.props.offset}
+                        limit={this.props.limit}
+                        setSize={(limit) => this.props.setSize(limit)}
+                        setPage={(offset) => this.props.setPage(offset)}
+                    />
                 </div>
-                <Pagination
-                    total={this.props.total}
-                    offset={this.props.offset}
-                    limit={this.props.limit}
-                    setSize={(limit) => this.props.setSize(limit)}
-                    setPage={(offset) => this.props.setPage(offset)}
-                />
-            </div>
+            </ErrorBoundary>
         :
-            <div className="main">
-                <div className="no-results">
-                    <p>No results found</p>
+            <ErrorBoundary>
+                <div className="main">
+                    <div className="no-results">
+                        <p>No results found</p>
+                    </div>
                 </div>
-            </div>
+            </ErrorBoundary>
+
     }
 }
