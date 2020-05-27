@@ -24,6 +24,7 @@
   },
   "description": "React project for EPAM mentoring program 2020",
   "dependencies": {
+    "@types/redux-persist": "^4.3.1",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "express": "^4.17.1",
@@ -32,6 +33,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.5"
   },
