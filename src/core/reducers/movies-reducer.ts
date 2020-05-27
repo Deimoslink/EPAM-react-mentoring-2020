@@ -1,4 +1,4 @@
-import {ActionI, MovieI} from '../interface';
+import {ActionI} from '../interface';
 import {ACTIONS} from '../actions/actions.enum';
 import {moviesStateI} from './reducer.interface';
 
