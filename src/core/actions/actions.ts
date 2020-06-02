@@ -2,6 +2,7 @@ import {getMoviesByFiltersPaginated} from '../api-service';
 import {Dispatch} from 'redux';
 import {ActionI, ApplicationStateI} from '../interface';
 import {ACTIONS} from './actions.enum';
+import {push} from 'connected-react-router'
 
 
 export const setMoviesAction = () => {
@@ -29,9 +30,6 @@ export const setOptionAction = (selectedOption: string) =>  {
             payload: selectedOption
         });
         dispatch(setMoviesAction());
-        return new Promise(resolve => {
-            resolve();
-        });
     };
 };
 
@@ -42,9 +40,6 @@ export const setGenreAction = (selectedGenre: string) => {
             payload: selectedGenre
         });
         dispatch(setMoviesAction());
-        return new Promise(resolve => {
-            resolve();
-        });
     };
 };
 
@@ -54,6 +49,7 @@ export const setQueryAction = (query: string) => {
             type: ACTIONS.QUERY,
             payload: query
         });
+        dispatch(push({pathname: '/search', search: query}));
         dispatch(setMoviesAction());
     };
 };
@@ -65,9 +61,6 @@ export const setSortAction = (sortOrder: string) => {
             payload: sortOrder
         });
         dispatch(setMoviesAction());
-        return new Promise(resolve => {
-            resolve();
-        });
     }
 };
 
@@ -78,9 +71,6 @@ export const setSizeAction = (limit: number) => {
             payload: limit
         });
         dispatch(setMoviesAction());
-        return new Promise(resolve => {
-            resolve();
-        });
     }
 };
 
@@ -91,9 +81,6 @@ export const setPageAction = (offset: number) => {
             payload: offset
         });
         dispatch(setMoviesAction());
-        return new Promise(resolve => {
-            resolve();
-        });
     }
 };
 

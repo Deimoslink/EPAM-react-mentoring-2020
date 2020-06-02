@@ -6,6 +6,7 @@ export interface AppPropsI {
     total: number;
     offset: number;
     limit: number;
+    query: string;
     setSize: (val: number) => void;
     setPage: (val: number) => void;
     setQuery: (val: string) => void;

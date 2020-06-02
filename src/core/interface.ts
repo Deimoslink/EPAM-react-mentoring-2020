@@ -29,5 +29,6 @@ export interface ActionI {
 
 export interface ApplicationStateI {
     dropdownState: dropdownStateStateI,
-    movies: moviesStateI
+    movies: moviesStateI,
+    router: any,
 }

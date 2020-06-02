@@ -1,6 +1,8 @@
 import axios, {AxiosResponse} from 'axios';
 import {MovieI, PaginatedDataI} from './interface';
 
+const API_URL = 'https://reactjs-cdp.herokuapp.com/movies';
+
 
 export const getMoviesByFiltersPaginated = (
     limit: number,
@@ -10,7 +12,7 @@ export const getMoviesByFiltersPaginated = (
     selectedGenre: string,
     query: string
 ): Promise<AxiosResponse<PaginatedDataI<MovieI>>> => {
-    return axios.get(`https://reactjs-cdp.herokuapp.com/movies`, {
+    return axios.get(API_URL, {
         params: {
             limit,
             offset,
@@ -21,4 +23,8 @@ export const getMoviesByFiltersPaginated = (
             searchBy: 'title'
         }
     });
+};
+
+export const getMovieById = (id: number): Promise<AxiosResponse<MovieI>> => {
+    return axios.get(API_URL + '/' + id);
 };
