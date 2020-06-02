@@ -3,16 +3,26 @@ import './Header.scss';
 import {HeaderPropsI} from './Header.interface';
 
 
-export class Header extends React.Component<HeaderPropsI, {}> {
-    query = '';
+export class Header extends React.Component<HeaderPropsI, {query: string}> {
+
+    constructor (props: HeaderPropsI) {
+        super(props);
+        this.state = {
+            query: props.query,
+        };
+    }
 
     setQuery = (): void => {
-        this.props.setQuery(this.query)
+        this.props.setQuery(this.state.query)
     };
 
     handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        this.query = event.target.value;
+        this.setState({query: event.target.value});
     };
+
+    componentDidMount() {
+        this.setQuery();
+    }
 
     render() {
         return (
@@ -20,7 +30,7 @@ export class Header extends React.Component<HeaderPropsI, {}> {
                 <input placeholder="What do you want to watch?"
                        className="search"
                        onChange={this.handleChange}
-                       onKeyPress={ (event) => {if (event.key === 'Enter'){this.setQuery}} }
+                       value={this.state.query}
                 />
                 <button className="btn-search"
                         onClick={this.setQuery}

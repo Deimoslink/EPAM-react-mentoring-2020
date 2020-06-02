@@ -8,6 +8,7 @@ module.exports = {
     entry: "./src/index.tsx",
     output: {
         path: path.resolve(__dirname, "dist-dev"),
+        publicPath: '/',
         filename: "bundle.js"
     },
     resolve: {
@@ -26,6 +27,9 @@ module.exports = {
             },
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [
         new webpack.DefinePlugin({
