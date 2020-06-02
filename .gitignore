@@ -106,3 +106,8 @@ dist
 # IDEA
 .idea
 *.iml
+
+# Jest
+coverage/
+__snapshot__
+*.snap

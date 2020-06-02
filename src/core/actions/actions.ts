@@ -29,6 +29,9 @@ export const setOptionAction = (selectedOption: string) =>  {
             payload: selectedOption
         });
         dispatch(setMoviesAction());
+        return new Promise(resolve => {
+            resolve();
+        });
     };
 };
 
@@ -39,6 +42,9 @@ export const setGenreAction = (selectedGenre: string) => {
             payload: selectedGenre
         });
         dispatch(setMoviesAction());
+        return new Promise(resolve => {
+            resolve();
+        });
     };
 };
 
@@ -59,6 +65,9 @@ export const setSortAction = (sortOrder: string) => {
             payload: sortOrder
         });
         dispatch(setMoviesAction());
+        return new Promise(resolve => {
+            resolve();
+        });
     }
 };
 
@@ -69,6 +78,9 @@ export const setSizeAction = (limit: number) => {
             payload: limit
         });
         dispatch(setMoviesAction());
+        return new Promise(resolve => {
+            resolve();
+        });
     }
 };
 
@@ -79,14 +91,12 @@ export const setPageAction = (offset: number) => {
             payload: offset
         });
         dispatch(setMoviesAction());
+        return new Promise(resolve => {
+            resolve();
+        });
     }
 };
 
 export const toggleDropdownAction = (showDropdown: boolean) => {
-    return (dispatch: Dispatch<any>) => {
-        dispatch ({
-            type: ACTIONS.SHOW_DROPDOWN,
-            payload: showDropdown
-        })
-    }
+    return {type: ACTIONS.SHOW_DROPDOWN, payload: showDropdown}
 };
